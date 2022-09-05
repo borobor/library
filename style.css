@@ -22,6 +22,20 @@ body {
 	grid-template-columns: 3fr 1fr;
 }
 
+.library {
+	display: grid;
+	grid-auto-flow: column;
+}
+
+.card {
+	background-color: rgba(204, 7, 204, 0.712);
+	width: 250px;
+	height: 250px;
+	margin: 10px;
+	padding: 10px;
+	border-radius: 10px;
+}
+
 .sidebar {
 	background-color:rgb(0, 152, 190);
 	display: flex;
