@@ -64,34 +64,42 @@ function createForm() {
 	
 	const formTitle = document.createElement('input');
 	formTitle.setAttribute('type', 'text');
-	formTitle.setAttribute('ID', 'title');
+	formTitle.setAttribute('id', 'title');
 	formTitle.setAttribute('required', 'true');
 	formTitle.setAttribute('placeholder', 'Book title');
 	
 	const formAuthor = document.createElement('input');
 	formAuthor.setAttribute('type', 'text');
-	formAuthor.setAttribute('ID', 'author');
+	formAuthor.setAttribute('id', 'author');
 	formAuthor.setAttribute('required', 'true');
 	formAuthor.setAttribute('placeholder', 'Book author');
 
+	const readContainer = document.createElement('div');
+
 	const formPages = document.createElement('input');
 	formPages.setAttribute('type', 'number');
-	formPages.setAttribute('ID', 'pages');
+	formPages.setAttribute('id', 'pages');
 	formPages.setAttribute('placeholder', '99');
 	
 	const formRead = document.createElement('input');
+	const readLabel = document.createElement('label');
+	readLabel.textContent = 'Have you read it?';
+	readLabel.setAttribute('for', 'read');
 	formRead.setAttribute('type', 'checkbox');
-	formRead.setAttribute('ID', 'read');
+	formRead.setAttribute('id', 'read');
 
 
 	const submitButton = document.createElement('button');
 	submitButton.setAttribute('type', 'submit');
-	submitButton.textContent = 'Submit'
+	submitButton.textContent = 'Submit';
+
+	readContainer.appendChild(readLabel);
+	readContainer.appendChild(formRead);
 
 	form.appendChild(formTitle);
 	form.appendChild(formAuthor);
 	form.appendChild(formPages);
-	form.appendChild(formRead);
+	form.appendChild(readContainer);
 	form.appendChild(submitButton);
 	sidebar.appendChild(form);
 }
