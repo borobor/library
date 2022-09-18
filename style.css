@@ -1,5 +1,12 @@
+:root {
+	--main-color: rgba(0, 204, 255, 0.4);
+}
+
+
 html,
 body {
+	background-image: url(./img/library.jpg);
+	background-size: cover;
 	margin: 0;
 }
 
@@ -12,7 +19,7 @@ body {
 .header {
 	height: 100px;
 	line-height: 50px;
-	background-color: rgb(0, 204, 255);
+	background-color: var(--main-color);
 	text-align: center;
 }
 
@@ -29,12 +36,12 @@ body {
 }
 
 .card {
-	background-color: rgba(255, 53, 53, 0.911);
+	background-color: rgba(255, 47, 47, 0.6);
+	border-radius: 20px;
 	width: 250px;
 	height: 250px;
 	margin: 10px;
 	padding: 10px;
-	border-radius: 10px;
 }
 
 .card:hover {
@@ -56,7 +63,7 @@ body {
 }
 
 .sidebar {
-	background-color:rgb(0, 152, 190);
+	background-color: var(--main-color);
 	display: flex;
 	flex-direction: column;
 	padding: 20px;
@@ -74,10 +81,10 @@ form {
 
 .footer {
 	height: 50px;
-	background-color: rgb(0, 204, 255);
+	background-color:var(--main-color);
 	text-align: center;
 }
 
 .readTrue {
-	background-color: rgb(0, 255, 106);
+	background-color: rgba(101, 255, 45, 0.6);
 }
