@@ -7,7 +7,7 @@ let myLibrary = [];
 function Book(title, author, pages, read) {
 	this.title = title;
 	this.author = author;
-	this.pages = pages;
+	this.pages = 'Pages: ' + pages;
 	this.read = read;
 }
 
@@ -30,6 +30,17 @@ function createBookCard() {
 			bookItem.appendChild(bookData);
 			bookData.textContent = value;
 		})
+
+		if (myLibrary[index].read == true) {
+			bookItem.classList.add('readTrue');
+		}
+
+		readStatusButton = document.createElement('button');
+		readStatusButton.classList.add('readBtn');
+		readStatusButton.textContent = 'Change read status';
+		bookItem.appendChild(readStatusButton);
+		readStatusButton.setAttribute('data-index', index);
+		readStatusButton.addEventListener('click', changeReadStatus);
 
 		deleteButton = document.createElement('button');
 		deleteButton.classList.add('delete')
@@ -95,12 +106,22 @@ function submitBook(event) {
 	let read = document.getElementById('read').checked;
 
 	myLibrary.push(new Book(title, author, pages, read));
-
-createBookCard();
+	createBookCard();
 }
 
 function deleteBook(event) {
 	let index = event.target.getAttribute('data-index');
 	myLibrary.splice(index, 1);
+	createBookCard();
+}
+
+function changeReadStatus(event) {
+	let index = event.target.getAttribute('data-index');
+	if (myLibrary[index].read == true) {
+	  (myLibrary[index].read = false);
+	} else {
+		(myLibrary[index].read = true);
+	}
+		
 	createBookCard();
 }
