@@ -44,7 +44,7 @@ function createBookCard() {
 
 		deleteButton = document.createElement('button');
 		deleteButton.classList.add('delete')
-		deleteButton.textContent = 'x';
+		deleteButton.textContent = '❌';
 		bookItem.appendChild(deleteButton);
 
 		deleteButton.setAttribute('data-index', index);

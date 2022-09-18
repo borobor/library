@@ -2,6 +2,9 @@
 	--main-color: rgba(0, 204, 255, 0.4);
 }
 
+* {
+	box-sizing: border-box;
+}
 
 html,
 body {
@@ -42,6 +45,41 @@ body {
 	height: 250px;
 	margin: 10px;
 	padding: 10px;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+}
+
+.card p:first-child {
+	height: 50px;
+	font-size: 24px;
+}
+
+p + p {
+	margin: 5px;
+	height: 15px;
+}
+
+.card > button {
+	border: 0px;
+	height: 30px;
+	width: 100%;
+}
+
+.card > button.readBtn {
+	position: absolute;
+	bottom: 30px;
+	left: 0px;
+	background-color: aqua;
+}
+
+.card > button.delete {
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	border-bottom-left-radius: 20px;
+	border-bottom-right-radius: 20px;
+	background-color: red;
 }
 
 .card:hover {
