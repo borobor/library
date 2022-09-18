@@ -48,6 +48,11 @@ button.add {
 	border-radius: 10px;
 }
 
+form {
+	display: flex;
+	flex-direction: column;
+}
+
 .footer {
 	height: 50px;
 	background-color: rgb(0, 204, 255);
