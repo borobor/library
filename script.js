@@ -15,37 +15,52 @@ let android = new Book('Do Androids Dream of Electric Sheep', 'Philip K. Dick', 
 
 myLibrary.push(android);
 
-function addBookToLibrary() {
+function createBookCard() {
 	while (library.firstChild) {
 		library.removeChild(library.lastChild);
 	}
+	let index = 0;
 	myLibrary.forEach(book => {
 		const bookItem = document.createElement('div');
 		library.appendChild(bookItem);
-		bookItem.classList.add('card')
+		bookItem.classList.add('card');
+
 		Object.values(book).forEach(value => {
 			const bookData = document.createElement('p');
 			bookItem.appendChild(bookData);
 			bookData.textContent = value;
 		})
+
+		deleteButton = document.createElement('button');
+		deleteButton.classList.add('delete')
+		deleteButton.textContent = 'x';
+		bookItem.appendChild(deleteButton);
+
+		deleteButton.setAttribute('data-index', index);
+		deleteButton.addEventListener('click', deleteBook);
+		index++;		
 	})
 }
 
-addBookToLibrary();
+createBookCard();
 
 addBook.addEventListener("click", createForm)
 
 function createForm() {
+	if (sidebar.childElementCount != 1) return;
+
 	form = document.createElement('form');
 	
 	const formTitle = document.createElement('input');
 	formTitle.setAttribute('type', 'text');
 	formTitle.setAttribute('ID', 'title');
+	formTitle.setAttribute('required', 'true');
 	formTitle.setAttribute('placeholder', 'Book title');
 	
 	const formAuthor = document.createElement('input');
 	formAuthor.setAttribute('type', 'text');
 	formAuthor.setAttribute('ID', 'author');
+	formAuthor.setAttribute('required', 'true');
 	formAuthor.setAttribute('placeholder', 'Book author');
 
 	const formPages = document.createElement('input');
@@ -68,7 +83,6 @@ function createForm() {
 	form.appendChild(formRead);
 	form.appendChild(submitButton);
 	sidebar.appendChild(form);
-
 }
 
 document.addEventListener('submit', submitBook);
@@ -82,5 +96,11 @@ function submitBook(event) {
 
 	myLibrary.push(new Book(title, author, pages, read));
 
-addBookToLibrary();
+createBookCard();
+}
+
+function deleteBook(event) {
+	let index = event.target.getAttribute('data-index');
+	myLibrary.splice(index, 1);
+	createBookCard();
 }

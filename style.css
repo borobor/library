@@ -25,6 +25,7 @@ body {
 .library {
 	display: grid;
 	grid-auto-flow: column;
+	padding: 20px;
 }
 
 .card {
@@ -34,6 +35,24 @@ body {
 	margin: 10px;
 	padding: 10px;
 	border-radius: 10px;
+}
+
+.card:hover {
+	transform: scale(1.1);
+	transition: 0.5s linear;
+}
+
+.card:not(:hover) {
+	transform: scale(1);
+	transition: 0.2s ease-in;
+}
+
+.card button {
+	display: none;
+}
+
+.card:hover button {
+	display: block;
 }
 
 .sidebar {
