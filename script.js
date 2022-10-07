@@ -32,7 +32,7 @@ function createBookCard() {
 		})
 
 		if (myLibrary[index].read == true) {
-			bookItem.classList.add('readTrue');
+			bookItem.classList.add('is-read');
 		}
 
 		readStatusButton = document.createElement('button');
@@ -106,8 +106,9 @@ function createForm() {
 
 document.addEventListener('submit', submitBook);
 
-function submitBook(event) {
-	event.preventDefault();
+function submitBook(e) {
+	e.preventDefault();
+
 	let title = document.getElementById('title').value;
 	let author = document.getElementById('author').value;
 	let pages = document.getElementById('pages').value;

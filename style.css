@@ -1,5 +1,10 @@
 :root {
 	--main-color: rgba(0, 204, 255, 0.4);
+	--ash-gray: #ccd7c5ff;
+	--misty-rose: #efd2cbff;
+	--camel: #c7a27cff;
+	--mystic: #d65780ff;
+	--dark-salmon: #ee9480ff;
 }
 
 * {
@@ -52,6 +57,7 @@ body {
 	text-align: center;
 	display: flex;
 	flex-direction: column;
+	transition: background-color 0.2s;
 }
 
 .card p:first-child {
@@ -60,26 +66,26 @@ body {
 	font-weight: bold;
 }
 
-p + p {
+p+p {
 	margin: 0px;
-	height: 25px;
+	line-height: 1.1;
 	font-size: 18px;
 }
 
-.card > button {
+.card>button {
 	border: 0px;
 	height: 30px;
 	width: 100%;
 }
 
-.card > button.readBtn {
+.card>button.readBtn {
 	position: absolute;
 	bottom: 30px;
 	left: 0px;
-	background-color: aqua;
+	background-color: #00ff956f;
 }
 
-.card > button.delete {
+.card>button.delete {
 	position: absolute;
 	bottom: 0px;
 	left: 0px;
@@ -88,23 +94,27 @@ p + p {
 	background-color: red;
 }
 
-.card:hover {
-	transform: scale(1.1);
-	transition: 0.2s linear;
-	backdrop-filter: none;
+.card {
+	transform: scale(1);
+	transition: 0.2s ease-in-out;
 }
 
-.card:not(:hover) {
-	transform: scale(1);
-	transition: 0.5s ease-in;
+.card:hover {
+	transform: scale(1.1);
+	transition: 0.2s;
+	backdrop-filter: ease-in-out;
 }
 
 .card button {
-	display: none;
+	display: block;
+	opacity: 0;
+	transition: opacity 0.2s ease-in-out;
+	pointer-events: none;
 }
 
 .card:hover button {
-	display: block;
+	opacity: 1;
+	pointer-events: all;
 }
 
 .sidebar {
@@ -134,24 +144,24 @@ form > * {
 	font-size: 24px;
 }
 
-form > div {
+form>div {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
 	font-weight: bold;
 }
 
-input[type = 'checkbox'] {
+input[type='checkbox'] {
 	transform: scale(3);
 }
 
 .footer {
 	height: 50px;
-	background-color:var(--main-color);
+	background-color: var(--main-color);
 	backdrop-filter: blur(5px);
 	text-align: center;
 }
 
-.readTrue {
+.is-read {
 	background-color: rgba(101, 255, 45, 0.6);
 }
